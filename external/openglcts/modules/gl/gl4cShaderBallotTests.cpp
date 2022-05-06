@@ -439,7 +439,7 @@ bool ShaderBallotBaseTestCase::validateScreenPixelsSameColor(deqp::Context& cont
 	centerPixel[3]			  = -1.0f;
 
 	// read pixel
-	gl.readPixels(size.x() / 2, size.y() / 2, 1, 1, GL_RGBA, GL_FLOAT, centerPixel);
+	gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_FLOAT, centerPixel);
 
 	tcu::Vec4 desiredColor(centerPixel[0], centerPixel[1], centerPixel[2], centerPixel[3]);
 
@@ -731,7 +731,7 @@ tcu::TestNode::IterateResult ShaderBallotFunctionReadTestCase::iterate()
 	const tcu::RenderTarget renderTarget = m_context.getRenderContext().getRenderTarget();
 
 	gl.clearColor(1.0f, 0.0f, 0.0f, 1.0f);
-	gl.viewport(renderTarget.getWidth() / 2 - 1, renderTarget.getHeight() / 2 - 1, 2, 2);
+	gl.viewport(0, 0, 2, 2);
 
 	for (ShaderPipelineIter pipelineIter = m_shaderPipelines.begin(); pipelineIter != m_shaderPipelines.end();
 		 ++pipelineIter)
